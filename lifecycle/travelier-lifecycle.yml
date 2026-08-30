@@ -1,0 +1,64 @@
+generated: '2026-08-30'
+method: searched
+source: https://www.travelier.com/
+note: >-
+  Searched the Travelier group site and every brand host for the operational lifecycle surface an
+  API programme normally publishes. Nothing was found: no status page, no changelog or release
+  notes, no versioning policy, no deprecation/sunset policy and no SLA. The only version signal
+  observed anywhere is a path-level "v1" in the single SeatOS sample operation
+  (POST /v1/availability/search) and a build revision string (revisions/v1.0.6) in the SeatOS
+  login SPA — neither is a published policy. No StatusPage or Deprecation pointer is emitted,
+  because emitting one would assert a surface Travelier does not serve.
+versioning:
+  scheme: uri-path
+  evidence: >-
+    POST /v1/availability/search, published as a code sample on https://www.seatos.com/. Inferred
+    from a single documented path only; no versioning policy document exists.
+  policy_url: null
+status_page:
+  present: false
+  url: null
+  probed:
+  - url: https://status.travelier.com/
+    status: '<no response>'
+    note: Hostname does not resolve.
+  - url: https://status.seatos.com/
+    status: 200
+    note: >-
+      Wildcard DNS, not a status page — returns the byte-identical 981-byte SeatOS login SPA that
+      api.seatos.com and docs.seatos.com serve.
+  - url: https://status.bookaway.com/
+    status: 200
+    note: Wildcard DNS — serves the bookaway.com consumer homepage, not a status page.
+  - url: https://status.12go.asia/
+    status: 200
+    note: Wildcard DNS — redirects to https://12go.asia/en, the consumer homepage.
+  - url: https://travelier.statuspage.io/
+    status: 200
+    note: >-
+      Unclaimed; Atlassian redirects to its own Statuspage product page, so no hosted status page
+      exists under the Travelier name.
+changelog:
+  present: false
+  url: null
+deprecation_policy:
+  present: false
+  url: null
+  sunset_header_support: unknown
+  note: >-
+    RFC 8594 Sunset/Deprecation header support cannot be observed — every anonymous request to
+    api.travelier.com is rejected with 403 before response headers describe any resource.
+sla:
+  present: false
+  url: null
+deprecated_operations: []
+evidence:
+- url: https://www.travelier.com/
+  status: 200
+  observed: 'Site is 8 pages (home, partners, research, brands, contact, about, careers, press) per sitemap; no status/changelog/policy page exists.'
+- url: https://www.travelier.com/page-sitemap.xml
+  status: 200
+  observed: Full page inventory of the corporate site; no developer or operational pages.
+- url: https://api.travelier.com/
+  status: 403
+  observed: Gateway rejects anonymously; no lifecycle headers observable.

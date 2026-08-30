@@ -1,0 +1,29 @@
+generated: '2026-08-30'
+method: searched
+source: https://www.travelier.com/partners/
+plan_count: 0
+note: >-
+  Travelier publishes no plans, tiers, prices or quotas for Travelier Connect or the SeatOS API.
+  The partners page ends in a "Let's Talk" contact form and the SeatOS site in a "Request API docs"
+  contact form; there is no pricing page, no self-serve signup and no published rate card on
+  travelier.com, seatos.com or any brand host. Commercial terms are negotiated per partner. The
+  consumer brands (Bookaway, 12Go, Plataforma10, DeOnibus, Traveling.com) sell tickets, not API
+  access. 12Go additionally runs a revenue-share affiliate programme (50% of profit, ~$3 average
+  commission per booking, 8% referral for 36 months) which is a payout schedule rather than an API
+  plan, and its XML API/data-feed access sits behind affiliate sign-in.
+plans: []
+evidence:
+- url: https://www.travelier.com/partners/
+  status: 200
+  observed: '"Let''s Talk" contact section; no pricing, tiers or quotas anywhere on the page.'
+- url: https://www.seatos.com/
+  status: 200
+  observed: '"Request API docs" call to action; no pricing published.'
+- url: https://www.seatos.com/contact.html
+  status: 200
+  observed: Contact form is the only route to commercial terms.
+- url: https://agent.12go.asia/
+  status: 200
+  observed: >-
+    Affiliate programme landing page; commission terms published, API/data-feed access requires
+    affiliate sign-in.

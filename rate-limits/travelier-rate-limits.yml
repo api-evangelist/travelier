@@ -1,0 +1,26 @@
+generated: '2026-08-30'
+method: searched
+source: https://www.travelier.com/partners/
+limit_count: 0
+note: >-
+  No rate limits are published. There is no public API reference for Travelier Connect or the SeatOS
+  API in which limits, windows, burst allowances or 429 semantics could be stated, and no
+  X-RateLimit-*/RateLimit-*/Retry-After headers could be observed because every anonymous request to
+  api.travelier.com is rejected at the gateway with 403 {"message":"Missing Authentication Token"}
+  before any rate-limit header is emitted. Limits, if they exist, are presumably set in the partner
+  agreement. This is an honest zero, not an unchecked field.
+limits: []
+response_headers: []
+exhaustion_status: null
+evidence:
+- url: https://api.travelier.com/
+  status: 403
+  observed: '{"message":"Missing Authentication Token"} — no RateLimit/Retry-After headers present.'
+- url: https://www.travelier.com/partners/
+  status: 200
+  observed: Marketing page only; no technical reference, no limits documented.
+- url: https://www.seatos.com/
+  status: 200
+  observed: >-
+    Publishes one sample operation (POST /v1/availability/search) with request/response bodies but
+    no headers, no limits and no error semantics.

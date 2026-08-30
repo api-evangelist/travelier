@@ -1,0 +1,32 @@
+generated: '2026-08-30'
+method: searched
+status: none
+source: >-
+  Searched the Travelier group site, the SeatOS site, the 12Go/Bookaway partner surfaces, npm and
+  the company GitHub organizations for a hosted or installable MCP server, 2026-08-30.
+note: >-
+  Travelier publishes no MCP server, hosted or local. No mcp.* host resolves on any group domain,
+  no @travelier/@bookaway/@12go package exists on npm, and the GitHub organizations hold no MCP
+  code. A candidate tool list could not be derived either, because there is no OpenAPI, GraphQL SDL
+  or published API reference in this repo or on any Travelier host to derive operations from — the
+  only documented operation anywhere is a single marketing code sample
+  (POST /v1/availability/search on seatos.com). Inventing tool names from a marketing page would be
+  fabrication, so none were written. No MCPServer pointer is emitted.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+tools: []
+evidence:
+- url: https://www.travelier.com/partners/
+  status: 200
+  observed: No MCP, agent or AI-integration surface mentioned.
+- url: https://www.seatos.com/
+  status: 200
+  observed: '"One single API" positioning; no MCP server.'
+- url: https://api.travelier.com/
+  status: 403
+  observed: '{"message":"Missing Authentication Token"} — no anonymous MCP endpoint.'

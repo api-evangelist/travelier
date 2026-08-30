@@ -1,7 +1,18 @@
 aid: travelier
 name: Travelier
-description: 'Travelier is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Travelier (founded 2016, formerly Bookaway Group, headquartered in Tel Aviv, Israel) is a travel
+  technology group digitizing ground and sea transportation — the segment of travel that is still
+  largely sold offline. The group operates seven consumer and operator brands: Bookaway, 12Go,
+  Plataforma10, DeOnibus, Traveling.com, Sisorg and SeatOS, together reaching more than 120 countries
+  and roughly 14 million monthly visitors. Its commercial developer surface is Travelier Connect, a
+  single partner API that the company markets as the largest ground and sea transportation GDS —
+  12,000+ operators across 122 countries and around 500,000 routes for buses, ferries, trains and
+  shuttles — alongside the SeatOS transportation management system, which exposes the same inventory
+  to OTAs, GDSs, resellers and agent networks through one API connection. Both are partner
+  integrations: as of this profile no public developer portal, API reference or machine-readable
+  contract is published, and access runs through a sales contact form.
+image: https://www.travelier.com/wp-content/uploads/2024/01/T_Icon_square.png
 url: https://raw.githubusercontent.com/api-evangelist/travelier/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,12 +23,116 @@ created: '2026-08-30'
 modified: '2026-08-30'
 tags:
 - Company
-apis: []
+- Travel
+- Transportation
+- Ground Transportation
+- Ferries
+- Buses
+- Trains
+- Booking
+- Marketplace
+- Distribution
+apis:
+- name: Travelier Connect
+  description: >-
+    Travelier Connect is the group's partner distribution API — marketed on travelier.com/partners as
+    "the largest ground & sea transportation GDS", aggregating 12,000+ intercity transport operators
+    across 122 countries and ~500,000 routes (bus, ferry, train, shuttle) with real-time availability,
+    pricing and content behind a single API. No public API reference, base URL or machine-readable
+    contract is published; onboarding is a "Let's Talk" sales conversation.
+  humanURL: https://www.travelier.com/partners/
+  tags:
+  - Transportation
+  - Distribution
+  - Booking
+  properties:
+  - type: Website
+    url: https://www.travelier.com/partners/
+  - type: Support
+    url: https://www.travelier.com/contact/
+  x-access: partner-only
+  x-base-url-note: >-
+    No base URL is published. https://api.travelier.com is live and answers every path with
+    HTTP 403 {"message":"Missing Authentication Token"} (an AWS API Gateway default), which
+    proves an authenticated API host exists on the company apex but does NOT establish that it
+    serves Travelier Connect, so baseURL is deliberately left unset rather than guessed.
+- name: SeatOS API
+  description: >-
+    SeatOS is Travelier's SaaS transportation management system for ground and sea operators (built
+    for APAC operators, sibling to Sisorg in Latin America). Its marketing site publishes a single
+    documented operation — POST /v1/availability/search returning live trips, seat availability and
+    pricing — and states that "one API connection gives OTAs, GDSs, resellers, and agents live
+    inventory, availability, and pricing". The full reference is available only via a "Request API
+    docs" contact form; docs.seatos.com and api.seatos.com both serve the login SPA.
+  humanURL: https://www.seatos.com/
+  tags:
+  - Transportation
+  - Booking
+  - Operations
+  properties:
+  - type: Website
+    url: https://www.seatos.com/
+  - type: Support
+    url: https://www.seatos.com/contact.html
+  x-access: partner-only
+  x-documented-operations:
+  - method: POST
+    path: /v1/availability/search
+    source: https://www.seatos.com/
+    note: >-
+      Published verbatim as a marketing code sample with request and response JSON but no host.
+      Recorded as evidence only — not enough to author an OpenAPI, and none was authored.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/travelier-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/travelier-stock
+  url: https://www.travelier.com/
+- type: Support
+  url: https://www.travelier.com/contact/
+- type: GitHubOrganization
+  url: https://github.com/Travelier
+- type: Plans
+  url: plans/travelier-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/travelier-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/travelier-lifecycle.yml
+- type: Packages
+  url: packages/travelier-packages.yml
+- type: LLMsTxt
+  url: llms/travelier-llms.txt
+x-enrichment:
+  date: '2026-08-30'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Travelier markets two APIs — Travelier Connect ("the largest ground & sea transportation GDS")
+    and the SeatOS operator API — but publishes neither a developer portal nor a reference: both
+    partner pages terminate in a "Let's Talk" / "Request API docs" contact form, docs.seatos.com
+    and api.seatos.com serve the SeatOS login SPA, and api.travelier.com answers every path with
+    HTTP 403 {"message":"Missing Authentication Token"}.
+  evidence:
+  - url: https://www.travelier.com/partners/
+    status: 200
+  - url: https://www.seatos.com/
+    status: 200
+  - url: https://docs.seatos.com/
+    status: 200
+  - url: https://api.travelier.com/
+    status: 403
+  - url: https://api.12go.asia/openapi.json
+    status: 403
+  - url: https://www.travelier.com/.well-known/agent-card.json
+    status: 404
+  - url: https://www.bookaway.com/openapi.json
+    status: 404
+  checked: '2026-08-30'

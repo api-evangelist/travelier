@@ -1,0 +1,61 @@
+# Travelier
+
+> Travelier (founded 2016, formerly Bookaway Group; Tel Aviv, Israel) is a travel technology group
+> digitizing ground and sea transportation. It operates seven brands — Bookaway, 12Go, Plataforma10,
+> DeOnibus, Traveling.com, Sisorg and SeatOS — across 120+ countries. Its developer surface is
+> Travelier Connect, a partner distribution API aggregating 12,000+ intercity transport operators in
+> 122 countries and ~500,000 bus, ferry, train and shuttle routes, plus the SeatOS transportation
+> management system API for operators and their OTA/GDS/reseller channels.
+
+IMPORTANT FOR AGENTS: Travelier publishes no public developer portal, no API reference and no
+machine-readable contract. There is no OpenAPI, GraphQL SDL, AsyncAPI, gRPC or WSDL document on any
+Travelier host; no /.well-known/ document is served anywhere in the group; no A2A agent card exists;
+no MCP server exists; no SDK is published on npm, PyPI or the company GitHub organizations. Both
+APIs are partner integrations obtained through a sales conversation. Do not attempt to call
+api.travelier.com anonymously — it is an AWS API Gateway that answers every path with HTTP 403
+{"message":"Missing Authentication Token"}.
+
+## APIs
+
+- [Travelier Connect](https://www.travelier.com/partners/): Partner distribution API marketed as the
+  largest ground & sea transportation GDS — real-time availability, pricing and content for 12,000+
+  operators across 122 countries and ~500,000 routes. No published base URL, reference or contract.
+- [SeatOS API](https://www.seatos.com/): Transportation management system API for ground and sea
+  operators (APAC focus). One operation is published verbatim as a marketing sample —
+  `POST /v1/availability/search`, returning live trips with operator, departure time, seats available
+  and price — with no host and no further reference. Full docs available only on request.
+
+## Company
+
+- [Travelier](https://www.travelier.com/): Group site.
+- [About](https://www.travelier.com/about/): Founded 2016 by Noam Toister (CEO), Omer Chehmer (COO)
+  and David Itzhaki (CSO); ~14M monthly visitors across the group.
+- [Brands](https://www.travelier.com/brands/): Bookaway, 12Go, Plataforma10, DeOnibus,
+  Traveling.com, Sisorg, SeatOS.
+- [Partners](https://www.travelier.com/partners/): Travelier Connect positioning and contact form.
+- [Contact](https://www.travelier.com/contact/): The only route to API access.
+- [GitHub](https://github.com/Travelier): Organization exists; no public repositories.
+
+## Brand properties
+
+- [Bookaway](https://www.bookaway.com/) — ground transportation marketplace (Tel Aviv, 2017).
+- [12Go](https://12go.asia/) — APAC bus/ferry/train/flight platform (2012), also at
+  [12go.com](https://12go.com/); [affiliate programme](https://agent.12go.asia/) (XML API and data
+  feeds behind affiliate sign-in); [operator portal](https://op.12go.asia/) (login only).
+- [Plataforma10](https://www.plataforma10.com.ar/) — Latin American ticketing, 15,000+ destinations.
+- [DeOnibus](https://deonibus.com/) — Brazilian bus marketplace.
+- [Traveling.com](https://traveling.com/) — European bus/ferry/train/transfer platform.
+- [Sisorg](https://www.sisorg.com/) — Latin American transportation management system.
+- [SeatOS](https://www.seatos.com/) — APAC transportation management system;
+  [partners](https://www.seatos.com/partners.html), [contact](https://www.seatos.com/contact.html).
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/travelier/refs/heads/main/apis.yml)
+- [Well-known probe](well-known/travelier-well-known.yml) — zero hits across 11 hosts, with
+  soft-404 controls.
+- [Plans](plans/travelier-plans-pricing.yml) — plan_count 0; contact-only commercial terms.
+- [Rate limits](rate-limits/travelier-rate-limits.yml) — limit_count 0; none published.
+- [Lifecycle](lifecycle/travelier-lifecycle.yml) — no status page, changelog, deprecation policy or SLA.
+- [Packages](packages/travelier-packages.yml) — no first-party SDK on any registry.
+- [MCP](mcp/travelier-mcp.yml) — no MCP server, hosted or local.

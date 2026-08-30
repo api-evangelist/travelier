@@ -1,0 +1,269 @@
+generated: '2026-08-30'
+method: probed
+source: >-
+  Direct HTTP probe of every Travelier group web + API host, 2026-08-30. Every /.well-known/ path
+  probed alongside a nonexistent-path control on the same host so soft-404 catch-alls could be told
+  apart from real documents.
+summary: >-
+  Zero hits. No Travelier host serves any /.well-known/ document. Three distinct negative shapes were
+  observed and are recorded below: honest 404s (travelier.com, bookaway.com, 12go.asia,
+  traveling.com, plataforma10.com.ar, seatos.com, deonibus.com), an AWS API Gateway auth wall that
+  answers 403 to every path including /.well-known/* (api.travelier.com), and login-SPA catch-alls
+  that answer 200 with the same HTML for every path including the control (op.12go.asia, sisorg.com).
+  No WellKnown or SecurityTxt pointer is emitted — this file documents an absence.
+hit_count: 0
+hosts:
+- host: https://www.travelier.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 43188
+    note: WordPress 404 template; genuine 404 status, so negatives above are trustworthy.
+- host: https://api.travelier.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  soft_404_control:
+    path: /
+    status: 403
+    bytes: 42
+    note: >-
+      Every path returns {"message":"Missing Authentication Token"} — the AWS API Gateway default
+      for an unmatched or unauthorized route. A live authenticated API host exists here; nothing
+      anonymous is served, including discovery documents.
+- host: https://www.bookaway.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 145492
+    note: Next.js 404 page; genuine 404 status.
+- host: https://12go.asia
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 39227
+    note: Genuine 404 status.
+- host: https://api.12go.asia
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  soft_404_control:
+    path: /
+    status: 403
+    bytes: 0
+    note: Edge returns 403 with a zero-byte body for every path; no anonymous surface at all.
+- host: https://traveling.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 38851
+    note: Genuine 404 status.
+- host: https://www.plataforma10.com.ar
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 241957
+    note: Genuine 404 status.
+- host: https://deonibus.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 85093
+    note: Genuine 404 status; /.well-known/* returns zero-byte 404s.
+- host: https://www.seatos.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc123
+    status: 404
+    bytes: 51169
+    note: >-
+      Static marketing site; every unknown path returns the same 51,169-byte homepage body but with
+      a genuine 404 status, so the negatives are trustworthy.
+- host: https://op.12go.asia
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    rejected: soft-404
+    note: >-
+      REJECTED, not a hit. The 12Go operator portal answers 200 with the identical 16,876-byte
+      login HTML for /.well-known/agent-card.json, /openapi.json and the nonexistent-path control.
+      This is the SPA catch-all false positive the pipeline warns about.
+  soft_404_control:
+    path: /nonexistent-ctl-abc
+    status: 200
+    bytes: 16876
+    note: Byte-identical to the /.well-known/ responses — proof the 200s carry no document.
+- host: https://sisorg.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  soft_404_control:
+    path: /nonexistent-control-abc
+    status: 200
+    bytes: 6112
+    note: >-
+      Vite SPA. Unknown page routes return 200 with the app shell, but /.well-known/* and
+      /openapi.json return a genuine 404 "Not found", so those negatives hold.

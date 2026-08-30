@@ -1,0 +1,27 @@
+generated: '2026-08-30'
+method: searched
+source: >-
+  npm registry search, PyPI JSON API, and the Travelier/Bookaway/12Go GitHub organizations,
+  2026-08-30.
+note: >-
+  No first-party client library exists for any Travelier API. npm returns no package under
+  travelier, 12go or seatos; PyPI returns 404 for travelier, bookaway and 12go. The one near-match,
+  npm "bookaway-localization", is an unrelated 0.0.1 translation helper with no API client code and
+  no evidence of being published by the company — it is NOT recorded as an official SDK. The
+  company's public GitHub organizations hold no SDK either: github.com/Travelier has 0 public
+  repos, github.com/Travelier-AI has 1 ("destination-explorer-test"), and github.com/Bookaway has 2
+  ("example-gh-page", "compare-journeys" — described by its own metadata as "A simple test app").
+  This is consistent with a partner-only API: integrations are bilateral, so no public SDK is
+  distributed. No SDKs pointer is emitted.
+package_count: 0
+packages: []
+registries_checked:
+- registry: npm
+  query: travelier, bookaway, 12go, seatos
+  result: no first-party package
+- registry: pypi
+  query: travelier, bookaway, 12go
+  result: 404 on all three
+- registry: github
+  query: github.com/Travelier, /Travelier-AI, /Bookaway, /bookaway-ai, /12gohq, /12GO-DEV
+  result: no SDK or client library in any public repo
