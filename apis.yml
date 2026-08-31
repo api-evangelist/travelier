@@ -27,6 +27,17 @@ tags:
 - Transportation
 - Ground Transportation
 - Ferries
+- Bus
+- Trains
+- Booking
+- Marketplace
+- Distribution
+tags_raw:
+- Company
+- Travel
+- Transportation
+- Ground Transportation
+- Ferries
 - Buses
 - Trains
 - Booking
@@ -66,6 +77,9 @@ apis:
     docs" contact form; docs.seatos.com and api.seatos.com both serve the login SPA.
   humanURL: https://www.seatos.com/
   tags:
+  - Transportation
+  - Booking
+  tags_raw:
   - Transportation
   - Booking
   - Operations
