@@ -12,6 +12,19 @@ description: >-
   to OTAs, GDSs, resellers and agent networks through one API connection. Both are partner
   integrations: as of this profile no public developer portal, API reference or machine-readable
   contract is published, and access runs through a sales contact form.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - rate-limits
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://www.travelier.com/wp-content/uploads/2024/01/T_Icon_square.png
 url: https://raw.githubusercontent.com/api-evangelist/travelier/refs/heads/main/apis.yml
 x-type: company
